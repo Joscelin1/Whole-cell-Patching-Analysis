@@ -3,8 +3,7 @@
 
 %change the folder name, strain and animal register string 
 %rename the first memtest files for each cell such that they have an '_01'
-%at the end of their name and all subsequent memtest files if you want to 
-%save the data from them. 
+%at the end of their name 
 
 close all;
 clear all;
@@ -18,23 +17,25 @@ oAPData = GetCSVData('P:\Patching\ActionPotentials.csv');
 oAChSignal = GetCSVData('P:\Patching\AChResponse.csv');
 
 % get new cells
-%    GetNewCells(sFolder,sStrain,sAnimalRegister,oCellData,'P:\Patching');
+GetNewCells(sFolder,sStrain,sAnimalRegister,oCellData,'P:\Patching');
 % get mem test data
-%   SaveMemTestData(sFolder, sMemTestFile, oCellData)
-% % get new APs
-%    GetNewAPs(sFolder, oCellData, oAPData);
-%     GetNewAPsFixBridgeBalance(sFolder, oCellData, oAPData);
-% %get Family data
-%    GetICFamily(sFolder, oCellData);
-%   GetICStimFamily(sFolder, oCellData);
-% %need to look at and fix this rheobase code 
-%  GetRheobase(sFolder, oCellData);
-  GetAChSignal(sFolder, oCellData);
-% GetAChSignal_Bt(sFolder, oCellData);
-%adjust windows to search for peak if aqusition settings foe IVC have
-%changed
-% GetAChIVCSignal(sFolder);
-% GetGlutSignal(sFolder, oCellData);
+SaveMemTestData(sFolder, sMemTestFile, oCellData)
+% get new APs
+% GetNewAPs(sFolder, oCellData, oAPData);
+GetNewAPsFixBridgeBalance(sFolder, oCellData, oAPData);
+%get Family data
+GetICFamily(sFolder, oCellData);
+GetICStimFamily(sFolder, oCellData);
+%find Rheobase
+GetRheobase(sFolder, oCellData);
+%find response to ACh
+GetAChSignal(sFolder, oCellData);
+%find response to ACh when blocked by Bt
+GetAChSignal_Bt(sFolder, oCellData);
+% find IVC of ACh response
+GetAChIVCSignal(sFolder);
+% find glutamate response
+GetGlutSignal(sFolder, oCellData);
 
 
 
