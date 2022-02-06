@@ -1,2 +1,2 @@
-# Calcium-Imaging-Analysis
-Code for analyzing GP calcium traces 
+# Whole-cell-Patching-Analysis
+Code for Whole-cell-Patching-Analysis of GP neurons
